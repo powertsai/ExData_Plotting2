@@ -1,5 +1,10 @@
+#setwd("/Users/hadoop/Dropbox/R/ExploratoryData/CourseProject2")
+
+#require dplyr package
+library(dplyr)
 #readRDS("summarySCC_PM25.rds") from cached for plot
-data <- cacheData(cacheDF)
+#data <- cacheData(cacheDF)
+data <- readRDS("summarySCC_PM25.rds")
 
 #group by year, calculate total emission by sum
 sumdata.maryland <- data %>% 
@@ -9,6 +14,7 @@ sumdata.maryland <- data %>%
 summary(sumdata.maryland)
 #  %>% mutate(total.emissions = total.emissions/1000000) # tranfer unit to million tons
 #plot total emmision by year
+par( mar = c(4,5,2,1))
 plot(sumdata.maryland, xlim = range(sumdata.maryland$year),  xaxt = "n", 
      ylim=range(sumdata.maryland$total.emissions),
      ylab=expression('Total Emission PM'[2.5] * '(tons)') )

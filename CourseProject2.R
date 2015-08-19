@@ -2,6 +2,7 @@ setwd("/Users/hadoop/Dropbox/R/ExploratoryData/CourseProject2")
 
 #require dplyr package
 library(dplyr)
+head(data)
 
 # cached data set for summarySCC_PM25.rds
 cacheDF <- makeCacheDataFrame("summarySCC_PM25.rds")
